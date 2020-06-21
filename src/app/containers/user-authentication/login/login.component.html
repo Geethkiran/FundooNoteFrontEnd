@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <div class="LoginMainMain" fxLayout="column" fxLayoutAlign="space-around center">
+
+
+        <mat-card>
+
+            <div class="login-text" fxLayout="column" fxLayoutAlign="space-around center">
+                <mat-card-header>
+                    <img mat-card-avatar src="https://thumbs.dreamstime.com/z/letter-f-white-background-rainbow-colors-backdrop-ads-related-to-colors-lgbt-community-graphic-sign-124585574.jpg">
+
+                    <mat-card-title>FUNDOO</mat-card-title>
+                    <!--mat-icon matSuffix>person</mat-icon-->
+                    <mat-card-subtitle>Login</mat-card-subtitle>
+
+                </mat-card-header>
+            </div>
+
+
+
+
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                <div fxLayout="column" fxLayoutAlign="space-around center">
+                    <p>{{ errorMessage }}</p>
+
+                    <mat-form-field appearance="outline">
+                        <mat-label>Email</mat-label>
+
+
+                        <input class="email" matInput placeholder="Email" formControlName="email" [(ngModel)]=username>
+
+                        <mat-icon matSuffix>alternate_email</mat-icon>
+                        <!--mat-error *ngIf="email.invalid ">{{getEmailErrorMessage()}}</mat-error-->
+
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline">
+                            <mat-label>Password</mat-label>
+                            <input matInput placeholder="password" [type]="hide ? 'password' : 'text'" required formControlName="password">
+                            <!--mat-icon matSuffix>lock</mat-icon-->
+                            <mat-icon class="icons" matSuffix (click)="hide = !hide">{{
+                                hide ? "visibility_off" : "visibility"
+                              }}</mat-icon>
+
+                              <!--mat-error *ngIf="password.invalid">{{getPasswordErrorMessage()}}</mat-error-->
+                    </mat-form-field>
+
+                    <div class="submit1" fxLayout="row" fxLayoutAlign="space-around center">
+                        <mat-card-actions><button mat-raised-button  [disabled]="!loginForm.valid"
+                            >Submit</button>
+                            <!-- <div><a href=sendmail>Forgod Password ?</a></div> -->
+                            <br/>
+                        </mat-card-actions>
+                    </div>
+                    <div class="forgotpass" fxLayout="row" fxLayoutAlign="space-around center">
+                        <span class="newuser">
+                        
+
+                                <a class="a" routerLink="/passwordupdate">Forgot Password?</a>
+                       
+                             </span>
+                    </div>
+
+                    <div fxLayout="column" fxLayoutAlign="space-around center">
+                        <nav>
+                            <a routerLink="/register">New User?</a>
+                        </nav>
+                    </div>
+
+
+                </div>
+
+            </form>
+        </mat-card>
+    </div>
+</body>
+
+</html>
